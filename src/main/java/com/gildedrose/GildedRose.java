@@ -1,8 +1,5 @@
 package com.gildedrose;
 
-import java.util.HashMap;
-import java.util.Map;
-
 class GildedRose {
     Item[] items;
 
