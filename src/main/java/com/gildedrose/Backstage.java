@@ -2,7 +2,7 @@ package com.gildedrose;
 
 final class Backstage extends Item {
 
-    public Item updateQuality(Item item) {
+    public void updateQuality(Item item) {
         item.sellIn -= 1;
 
         if (item.sellIn >= 10) {
@@ -16,7 +16,5 @@ final class Backstage extends Item {
         }
 
         item.checkQuality(item);
-
-        return item;
     }
 }

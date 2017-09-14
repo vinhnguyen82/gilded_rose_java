@@ -2,7 +2,7 @@ package com.gildedrose;
 
 public class AgedBrie extends Item {
 
-    public Item updateQuality(Item item) {
+    public void updateQuality(Item item) {
         item.sellIn -= 1;
 
         if (item.sellIn < 0) {
@@ -12,8 +12,6 @@ public class AgedBrie extends Item {
         }
 
         item.checkQuality(item);
-
-        return item;
     }
 
 }

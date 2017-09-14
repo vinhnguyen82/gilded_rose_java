@@ -2,7 +2,7 @@ package com.gildedrose;
 
 final class Normal extends  Item {
 
-    public Item updateQuality(Item item) {
+    public void updateQuality(Item item) {
         item.sellIn -= 1;
 
         if (item.sellIn < 0) {
@@ -10,9 +10,6 @@ final class Normal extends  Item {
         } else {
             item.quality -= 1;
         }
-
         item.checkQuality(item);
-
-        return item;
     }
 }

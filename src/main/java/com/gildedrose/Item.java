@@ -20,12 +20,9 @@ public class Item {
         this.quality = quality;
     }
 
-    public Item checkQuality(Item item) {
-
+    public void checkQuality(Item item) {
         item.quality = min(50, item.quality);
         item.quality = max(0, item.quality);
-
-        return item;
     }
 
     @Override
