@@ -23,12 +23,15 @@ public class GildedRoseTest {
 
     @Test
     public void qualityCannotBeNegative() {
-        Item[] items = new Item[] { new Item("normal", 3, 0) };
+        Item[] items = new Item[] { new Item("normal", 3, 0), new Item("Conjured", 1, 10) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         app.updateQuality();
         app.updateQuality();
         assertEquals(items[0].quality, 0);
+
+        assertEquals(items[1].sellIn, -2);
+        assertEquals(items[1].quality, 20);
     }
 
 

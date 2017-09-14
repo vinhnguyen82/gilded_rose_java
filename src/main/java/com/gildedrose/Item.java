@@ -20,6 +20,10 @@ public class Item {
         this.quality = quality;
     }
 
+    public void updateDate(Item item) {
+        item.sellIn -= 1;
+    }
+
     public void checkQuality(Item item) {
         item.quality = min(50, item.quality);
         item.quality = max(0, item.quality);

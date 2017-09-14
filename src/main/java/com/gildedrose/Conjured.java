@@ -2,8 +2,7 @@ package com.gildedrose;
 
 final class Conjured extends Item {
 
-    public void updateQuality(Item item) {
-        item.sellIn -= 1;
+    protected void updateQuality(Item item) {
 
         if (item.sellIn < 0) {
             item.quality += 4;

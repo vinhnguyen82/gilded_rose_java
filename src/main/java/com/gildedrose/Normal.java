@@ -1,9 +1,8 @@
 package com.gildedrose;
 
-final class Normal extends  Item {
+final class Normal extends Item {
 
-    public void updateQuality(Item item) {
-        item.sellIn -= 1;
+    protected void updateQuality(Item item) {
 
         if (item.sellIn < 0) {
             item.quality -= 2;
