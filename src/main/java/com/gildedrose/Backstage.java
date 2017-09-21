@@ -1,18 +1,67 @@
 package com.gildedrose;
 
-final class Backstage extends Item {
+import static java.lang.Math.max;
+import static java.lang.Math.min;
 
-    protected void updateQuality(Item item) {
+class Backstage implements Item {
 
-        if (item.sellIn >= 10) {
-            item.quality += 1;
-        } else if (item.sellIn >= 5) {
-            item.quality += 2;
-        } else if (item.sellIn >= 0) {
-            item.quality += 3;
+    String name;
+    int sellIn;
+    int quality;
+
+    public Backstage (String name, int sellIn, int quality) {
+        this.name = name;
+        this.sellIn = sellIn;
+        this.quality = quality;
+    }
+
+    public void updateDate(Item item) {
+        sellIn -= 1;
+    }
+
+    public void updateQuality(Item item) {
+
+        if (sellIn >= 10) {
+            quality += 1;
+        } else if (sellIn >= 5) {
+            quality += 2;
+        } else if (sellIn >= 0) {
+            quality += 3;
         } else {
-            item.quality = 0;
+            quality = 0;
         }
-        item.checkQuality(item);
+    }
+
+    public void checkQuality(Item item) {
+        quality = min(50, quality);
+        quality = max(0, quality);
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getDate() {
+        return this.sellIn;
+    }
+
+    public int getQuality() {
+        return this.quality;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDate(int sellInDate) {
+        this.sellIn = sellInDate;
+    }
+
+    public void setQuality(int quality) {
+        this.quality = quality;
+    }
+
+    @Override
+    public String toString() {
+        return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 }

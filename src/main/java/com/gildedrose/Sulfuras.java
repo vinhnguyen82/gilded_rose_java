@@ -3,14 +3,12 @@ package com.gildedrose;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
-class Normal implements Item {
-
-
+class Sulfuras implements Item {
     String name;
     int sellIn;
     int quality;
 
-    public Normal (String name, int sellIn, int quality) {
+    public Sulfuras (String name, int sellIn, int quality) {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
@@ -62,4 +60,5 @@ class Normal implements Item {
     public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
+
 }

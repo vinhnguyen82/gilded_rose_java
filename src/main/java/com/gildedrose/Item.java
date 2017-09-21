@@ -1,36 +1,22 @@
 package com.gildedrose;
 
-import static java.lang.Math.max;
-import static java.lang.Math.min;
+interface Item {
 
-public class Item {
+    void updateDate(Item item);
 
-    public String name;
+    void updateQuality(Item item);
 
-    public int sellIn;
+    void checkQuality(Item item);
 
-    public int quality;
+    String getName();
 
-    public Item() {
-    }
+    int getDate();
 
-    public Item(String name, int sellIn, int quality) {
-        this.name = name;
-        this.sellIn = sellIn;
-        this.quality = quality;
-    }
+    int getQuality();
 
-    public void updateDate(Item item) {
-        item.sellIn -= 1;
-    }
+    void setName(String name);
 
-    public void checkQuality(Item item) {
-        item.quality = min(50, item.quality);
-        item.quality = max(0, item.quality);
-    }
+    void setDate(int sellInDate);
 
-    @Override
-    public String toString() {
-        return this.name + ", " + this.sellIn + ", " + this.quality;
-    }
+    void setQuality(int quality);
 }

@@ -1,15 +1,66 @@
 package com.gildedrose;
 
-public class AgedBrie extends Item {
+import static java.lang.Math.max;
+import static java.lang.Math.min;
 
-    protected void updateQuality(Item item) {
+class AgedBrie implements Item {
 
-        if (item.sellIn < 0) {
-            item.quality += 2;
+    String name;
+    int sellIn;
+    int quality;
+
+    public AgedBrie (String name, int sellIn, int quality) {
+        this.name = name;
+        this.sellIn = sellIn;
+        this.quality = quality;
+    }
+
+    public void updateQuality(Item item) {
+
+        if (sellIn < 0) {
+            quality += 2;
         } else {
-            item.quality += 1;
+            quality += 1;
         }
 
         item.checkQuality(item);
     }
+
+    public void updateDate(Item item) {
+        sellIn -= 1;
+    }
+
+    public void checkQuality(Item item) {
+        quality = min(50, quality);
+        quality = max(0, quality);
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getDate() {
+        return this.sellIn;
+    }
+
+    public int getQuality() {
+        return this.quality;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDate(int sellInDate) {
+        this.sellIn = sellInDate;
+    }
+
+    public void setQuality(int quality) {
+        this.quality = quality;
+    }
+
+    @Override
+    public String toString() {
+        return this.name + ", " + this.sellIn + ", " + this.quality;
+    }
+
 }
